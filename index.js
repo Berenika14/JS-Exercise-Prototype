@@ -19,6 +19,8 @@ Airplane.prototype.land = function () {
   this.isFlying = false;
 };
 
+const AA = new Airplane('American Airline')
+console.log(AA.land())
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -121,14 +123,18 @@ const baby1 = new Baby('Dua',2 , '🧸')
 
 console.log(baby1.toString())
 console.log(baby1.play())
-//console.log(baby1.play())
+
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window binding -   if we didn't give 'this' any context it will return the window,
+   the global object in node or undefined if it is in a strict mode
+  2. Implicit binding - 'this' applies to objects with method. when the function (method) is called 
+  look on the left side after the dot ( that's what 'this' refers to)
+  3. Explicit binding - we directly pass in what we want the 'this' keyword or (argument) to be ,
+   by using .call .apply or .bind
+  4. New binding - when a function is invoked as a constructor function (function that returns an object)
+  'this' keyword points to the new object that is created.
 */
 
 
