@@ -20,7 +20,7 @@ Airplane.prototype.land = function () {
 };
 
 const AA = new Airplane('American Airline')
-console.log(AA.land())
+console.log(AA.takeOff())
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -55,7 +55,10 @@ Person.prototype.eat =function(edible){
 }
 Person.prototype.poop=function(){
   this.stomach =[];
+  
 }
+
+
 Person.prototype.toString =function(){
   return `${this.name}, ${this.age}`;
 }
@@ -63,8 +66,23 @@ Person.prototype.toString =function(){
 const nika = new Person(`Nika`, 25);
 const orr = new Person('Orr', 35);
 console.log(nika.toString());
-console.log(orr.toString());
+//console.log(orr.toString());
 
+nika.eat('🍕');
+nika.eat('🍝');
+nika.eat('🍣');
+nika.eat('🍫');
+nika.eat('🌮');
+nika.eat('🥩');
+nika.eat('🍿');
+nika.eat('🍧');
+nika.eat('🥯');
+nika.eat('🍤');
+nika.eat("🍮");
+nika.eat('🍯')
+console.log(nika)
+nika.poop();
+console.log(nika);
 
 
 
@@ -92,12 +110,26 @@ function Car(model, milesPerGallon) {
 
 Car.prototype.fill = function(gallons){
    this.tank += gallons
+   return this
+}
+Car.prototype.drive  = function(distance){
+   this.odometer += distance;
+   const tank = this.tank - distance / this.milesPerGallon
+
+  if ( tank < 0){
+    //console.log(tank)
+    return ` I ran out of fuel at this ${this.odometer}`
+  }
+   this.tank = tank 
+   return this
 }
 
-const tes = new Car('Tesla', 30);
+
+const tes = new Car('Tesla', 30).fill(20).drive(150)
 const bent = new Car('Bentley', 25)
 
-console.log(tes.fill(10))
+ //console.log(tes.fill(20))
+ console.log(tes);
 
 
 
@@ -121,7 +153,7 @@ Baby.prototype.play = function(){
 
 const baby1 = new Baby('Dua',2 , '🧸')
 
-console.log(baby1.toString())
+ console.log(baby1.toString())
 console.log(baby1.play())
 
 /* 
